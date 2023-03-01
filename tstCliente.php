@@ -1,7 +1,11 @@
 <?php 
 
 require_once("../includes.php");
-
+$conn = $_SESSION["conexao"];
+$sqlPf = "SELECT * FROM CLIENTE C JOIN PESSOA_FISICA PF ON C.IDCLIENTE = PF.IDCLIENTE";
+$sqlPj = "SELECT * FROM CLIENTE C JOIN PESSOA_JURIDICA PJ ON C.IDCLIENTE = PJ.IDCLIENTE";
+$consultaPf = mysqli_query($conn, $sqlPf);
+$consultaPj = mysqli_query($conn, $sqlPj);
 ?>
 
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.js"></script>
@@ -64,12 +68,39 @@ require_once("../includes.php");
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>1</td>
-                            <td>2</td>
-                            <td>3</td>
-                            <td>4</td>
-                        </tr>
+                        <?php
+                            while($resultPf = mysqli_fetch_assoc($consultaPf)) {
+                                print'
+                                <tr>
+                                    <td>'.$resultPf["idcliente"].' </td>
+                                    <td>'.$resultPf["nome_cliente"].' </td>
+                                    <td>'.$resultPf["cpf"].' </td>
+                                    <td>'.$resultPf["rg"].' </td>
+                                    <td>'.$resultPf["data_nascimento"].' </td>
+                                <td>
+                                    <a href="../telefone/form_telefone.php?idcliente='.$resultPf["idcliente"].'">
+                                        <button class="btn btn-primary">
+                                            Add Telefone
+                                        </button>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="../email/form_email.php?idcliente='.$resultPf["idcliente"].'">
+                                        <button class="btn btn-success">
+                                            Add Email
+                                        </button>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="../endereco/form_endereco.php?idcliente='.$resultPf["idcliente"].'">
+                                        <button class="btn btn-warning">
+                                            Add endereço
+                                        </button>
+                                    </a>
+                                </td>
+                                </tr>';
+                            }
+                        ?>
                     </tbody>
                 </table>
             </div>              
@@ -92,12 +123,39 @@ require_once("../includes.php");
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>a</td>
-                            <td>b</td>
-                            <td>c</td>
-                            <td>d</td>
-                        </tr>
+                        <?php
+                            while($resultPj = mysqli_fetch_assoc($consultaPj)) {
+                                print'
+                                <tr>
+                                    <td>'.$resultPj["idcliente"].' </td>
+                                    <td>'.$resultPj["nome_cliente"].' </td>
+                                    <td>'.$resultPj["cnpj"].' </td>
+                                    <td>'.$resultPj["razao_social"].' </td>
+                                    <td>'.$resultPj["inscricao_estadual"].' </td>
+                                <td>
+                                    <a href="../telefone/form_telefone.php?idcliente='.$resultPj["idcliente"].'">
+                                        <button class="btn btn-primary">
+                                            Add Telefone
+                                        </button>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="../email/form_email.php?idcliente='.$resultPj["idcliente"].'">
+                                        <button class="btn btn-success">
+                                            Add Email
+                                        </button>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a href="../endereco/form_endereco.php?idcliente='.$resultPj["idcliente"].'">
+                                        <button class="btn btn-warning">
+                                            Add endereço
+                                        </button>
+                                    </a>
+                                </td>
+                                </tr>';
+                            }
+                        ?>
                     </tbody>
                 </table>
             </div>              
