@@ -34,7 +34,6 @@ $consultaPj = mysqli_query($conn, $sqlPj);
 
     <div ng-controller="cliente">
 
-        <form action="tstCliente.php" method="POST">            
             <br><br>
             <center>
             <div class="card" style="width: 18rem;">
@@ -181,7 +180,6 @@ $consultaPj = mysqli_query($conn, $sqlPj);
                 </table>
                 </div></div></div>
             </div>              
-        </form>
     </div>
 </body>
 </div>
