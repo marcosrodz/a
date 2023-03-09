@@ -1,14 +1,9 @@
 <?php 
-
-require_once("../includes.php");
-/*$id = $_POST["idcliente"];
-$sql = "INSERTE INTO `telefone` (`idcliente`,`numero_telefone`) VALUES ($id,)"*/
-
+    require_once("../includes.php");
 ?>
-
 <body ng-app="myApp">    
 
-    <div ng-controller="telefone">
+    <div ng-controller="email">
                 
         <form action="cadastro_telefone.php" method="GET">            
             
@@ -20,8 +15,8 @@ $sql = "INSERTE INTO `telefone` (`idcliente`,`numero_telefone`) VALUES ($id,)"*/
             ?>">
 
             <div class="mb-3">
-                <label class="form-label">Número</label>
-                <input type="number" name="numero_telefone" class="form-control" placeholder="Prencha o Número">
+                <label class="form-label">Telefone</label>
+                <input type="number" name="email" class="form-control" placeholder="Prencha o Número">
             </div>
 
             <div class="mb-3">
