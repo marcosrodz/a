@@ -12,7 +12,7 @@ if (!isset($_GET["idcliente"]))
 <body ng-app="myApp">
 
     <div ng-controller="endereco">
-        <form action="cadastro_endereco.php" method="GET">            
+        <form action="cadastro_endereco.php" method="POST">            
                     
             <div class="mb-3">
                 <input type="hidden" name="idcliente" class="form-control" value="<?php 

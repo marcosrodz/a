@@ -3,17 +3,17 @@
 require_once("verifica_sessao.php");
 
 $hostname = "localhost";
-$db_name =  "sistema_venda";
-$username = "root";
+$database = "sistema_venda";
+$user = "root";
 $password = "";
 
-$conn = mysqli_connect($hostname, $username, $password, $db_name);
+$conn = mysqli_connect($hostname, $user, $password, $database);
 
-if (!$conn)
+if (!$conn) 
 {
     die(mysqli_error());
 }
 else 
-{   
-    $_SESSION["conexao"] = $conn;    
+{    
+    $_SESSION["conexao"] = $conn;
 }

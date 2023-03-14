@@ -13,5 +13,5 @@
 ?>
 <script>
     alert("Produto cadastrado com sucesso!!");
-    window.location.href = "../produto/form_produto.php";
+    window.location.href = "../produto/lista_produto.php";
 </script>
